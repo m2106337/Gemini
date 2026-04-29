@@ -2,28 +2,27 @@ import sys
 
 def main():
     if len(sys.argv) < 2:
-        print("Gemini CLI Help")
-        sys.exit(0)
+        print("Gemini active")
+        return 0
     
-    command = sys.argv[1]
+    cmd = sys.argv[1]
     
-    if command == "/init":
+    if cmd == "/init":
         print("Project state: initialized")
-        sys.exit(0)
-    elif command == "/gemini":
+        return 0
+    elif cmd == "/gemini":
         if len(sys.argv) > 2:
             subcommand = sys.argv[2]
             if subcommand == "summary":
                 print("Gemini Summary")
-                sys.exit(0)
+                return 0
             elif subcommand == "help":
                 print("Gemini CLI Help")
-                sys.exit(0)
-        else:
-            print("Gemini active")
-            sys.exit(0)
+                return 0
+        print("Gemini active")
+        return 0
     
-    sys.exit(1)
+    return 1
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
